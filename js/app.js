@@ -1,3 +1,3 @@
   + function($) {
-      uiLoad.load(jp_config_multi('handlebars', 'test'));
+      uiLoad.load(aut_config_multi('handlebars', 'test'));
   }(jQuery)
