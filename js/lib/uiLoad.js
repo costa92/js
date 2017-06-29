@@ -41,7 +41,7 @@ var uiLoad = uiLoad || {};
 
         var deferred = $.Deferred();
         var script = $document.createElement('script');
-        script.src = src;
+        script.src = src + v();
         script.onload = function(e) {
             deferred.resolve(e);
         };
@@ -66,7 +66,7 @@ var uiLoad = uiLoad || {};
         var style = $document.createElement('link');
         style.rel = 'stylesheet';
         style.type = 'text/css';
-        style.href = href;
+        style.href = href + v();
         style.onload = function(e) {
             deferred.resolve(e);
         };
@@ -75,8 +75,11 @@ var uiLoad = uiLoad || {};
         };
         $document.head.appendChild(style);
         loaded[href] = deferred;
-
         return deferred.promise();
+    }
+
+    var v = function() {
+        return '?v=' + (new Date()).getTime();
     }
 
 })(jQuery, document, uiLoad);
